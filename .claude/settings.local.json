@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell($lines = Get-Content \"z-star-coming-soon.html\"; $template = $lines[175]; $templateJson = $template | ConvertFrom-Json; $templateJson.Substring\\(0, 2000\\))",
+      "PowerShell($lines = Get-Content \"z-star-coming-soon.html\"; $manifestText = $lines[167]; $obj = $manifestText | ConvertFrom-Json; $keys = $obj.PSObject.Properties.Name; \"Total entries: $\\($keys.Count\\)\"; \"First UUID: $\\($keys[0]\\)\"; $first = $obj.\\($keys[0]\\); \"MIME: $\\($first.mime\\)\"; \"Compressed: $\\($first.compressed\\)\"; \"Data length: $\\($first.data.Length\\)\"; \"Property names: $\\($first.PSObject.Properties.Name -join ', '\\)\")",
+      "PowerShell(Remove-Item -Recurse -Force css, js, images, fonts, index.html -ErrorAction SilentlyContinue; powershell -ExecutionPolicy Bypass -File \".\\\\_extract.ps1\")",
+      "PowerShell(Remove-Item -Recurse -Force css, js, images, fonts, index.html -ErrorAction SilentlyContinue; powershell -ExecutionPolicy Bypass -File \".\\\\_extract.ps1\" | Out-Null; Write-Output '--- styles.css url\\(\\) lines ---'; Select-String -Path 'css\\\\styles.css' -Pattern 'url\\\\\\(' | ForEach-Object { $_.Line.Trim\\(\\) })"
+    ]
+  }
+}
