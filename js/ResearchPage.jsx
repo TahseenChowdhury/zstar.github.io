@@ -14,7 +14,7 @@ function ResearchPage() {
       <div className="section-eyebrow" style={{ marginTop: 32 }}>
         <span className="num">03</span> Research
       </div>
-      <h1>Notes from the lab.</h1>
+      <h1>Section heading placeholder.</h1>
       <div className="filters">
         {filters.map(f => (
           <button key={f}
